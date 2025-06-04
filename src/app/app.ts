@@ -20,14 +20,14 @@ export class AppComponent {
   obtenerSaludo() {
     if (this.metodo === 'GET') {
       const params = new HttpParams().set('nombre', this.nombre);
-      this.http.get<any>('http://localhost:8000/api/saludos', { params })
+      this.http.get<any>('http://10.0.10.210/api/saludos', { params })
         .subscribe({
           next: data => this.respuesta = data,
           error: () => this.respuesta = { mensaje: 'Error al consultar la API' }
         });
     } else {
       const body = { nombre: this.nombre };
-      this.http.post<any>('http://localhost:8000/api/saludos', body)
+      this.http.post<any>('http://10.0.10.210/api/saludos', body)
         .subscribe({
           next: data => this.respuesta = data,
           error: () => this.respuesta = { mensaje: 'Error al consultar la API' }
